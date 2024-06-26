@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor 
 public class Endereco {
 
-	
-
 	private String logradouro;
 	private String bairro;
 	private String cep;
