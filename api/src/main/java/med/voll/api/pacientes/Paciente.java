@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import med.voll.api.endereco.EnderecoPaciente;
 import med.voll.api.endereco.ModeloEnderecoPaciente;
 
 @Entity
@@ -16,6 +15,7 @@ public class Paciente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private int id;
+	
 	private String nome;
 	private String email;
 	private String cpf;
@@ -66,4 +66,18 @@ public class Paciente {
 	public void setEndereco(ModeloEnderecoPaciente endereco) {
 		this.endereco = endereco;
 	} 
+	
+	public void atualizarPaciente(AtualizaDadosPaciente paciente) {
+		if(paciente.nome() != null) {
+			this.nome = paciente.nome();
+		}
+		
+		if(paciente.email() != null) {
+			this.email = paciente.email();
+		}
+		
+		if(paciente.endereco() != null) {
+			this.endereco.atualizarEnderecoPaciente(paciente.endereco());
+		}
+	}
 }

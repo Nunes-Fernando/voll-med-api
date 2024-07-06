@@ -1,10 +1,12 @@
 package med.voll.api.pacientes;
 
+import jakarta.validation.constraints.NotNull;
 import med.voll.api.endereco.EnderecoPaciente;
 
-public record DadosCadastroPaciente(
-		String nome,
+public record AtualizaDadosPaciente(
+		@NotNull 
+		Integer id, 
+		String nome, 
 		String email, 
-		String cpf, 
 		EnderecoPaciente endereco) {
 }

@@ -1,14 +1,10 @@
 package med.voll.api.endereco;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import med.voll.api.pacientes.DadosCadastroPaciente;
 
 @Embeddable
 public class ModeloEnderecoPaciente {
-	
 	
 	private String logradouro;
 	private String numero;
@@ -25,7 +21,7 @@ public class ModeloEnderecoPaciente {
 
 	public ModeloEnderecoPaciente(DadosCadastroPaciente dadosPaciente) {
 		this.logradouro = dadosPaciente.endereco().logradouro();
-		this.numero = dadosPaciente.endereco().número();
+		this.numero = dadosPaciente.endereco().numero();
 		this.complemento =  dadosPaciente.endereco().complemento();
 		this.bairro =  dadosPaciente.endereco().bairro();
 		this.cidade =  dadosPaciente.endereco().cidade();
@@ -89,8 +85,8 @@ public class ModeloEnderecoPaciente {
 	}
 
 
-	public void setUF(String uF) {
-		UF = uF;
+	public void setUF(String uf) {
+		UF = uf;
 	}
 
 
@@ -99,8 +95,38 @@ public class ModeloEnderecoPaciente {
 	}
 
 
-	public void setCEP(String cEP) {
-		CEP = cEP;
+	public void setCEP(String cep) {
+		CEP = cep;
+	}
+	
+	public void atualizarEnderecoPaciente(EnderecoPaciente paciente) {
+		if(logradouro != null) {
+			this.logradouro = paciente.logradouro();
+		}
+		
+		if(numero != null) {
+			this.numero = paciente.numero();
+		}
+		
+		if(complemento != null) {
+			this.complemento = paciente.complemento();
+		}
+		
+		if(bairro != null) {
+			this.bairro = paciente.bairro();
+		}
+		
+		if(cidade != null) {
+			this.cidade = paciente.cidade();
+		}
+		
+		if(UF != null) {
+			this.UF = paciente.UF();
+		}
+		
+		if(CEP != null) {
+			this.CEP = paciente.cep();
+		}
 	}
 	
 }

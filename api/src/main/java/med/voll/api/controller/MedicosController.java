@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 import med.voll.api.medico.DadosAtualizacaoMedico;
 import med.voll.api.medico.DadosCadastroMedico;
 import med.voll.api.medico.DadosListagemMedico;
