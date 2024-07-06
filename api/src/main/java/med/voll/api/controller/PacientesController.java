@@ -4,13 +4,16 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.websocket.server.PathParam;
 import med.voll.api.pacientes.AtualizaDadosPaciente;
 import med.voll.api.pacientes.DadosCadastroPaciente;
 import med.voll.api.pacientes.Paciente;
@@ -41,5 +44,11 @@ public class PacientesController {
 	public void atualizarDadosPaciente(AtualizaDadosPaciente dados) {
 		var paciente = repo.getReferenceById(dados.id());
 		paciente.atualizarPaciente(dados); 
+	}
+	
+	@DeleteMapping("{id}")
+	@Transactional
+	public void deletarPaciente(@PathVariable Integer id) {
+		repo.deleteById(id);
 	}
 }
